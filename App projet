@@ -1,0 +1,12 @@
+/* What does the app's SQL look like? */
+CREATE TABLE fetch (id INTEGER PRIMARY KEY AUTOINCREMENT, store TEXT, coupons INTEGER, savings INTEGER);
+
+INSERT INTO fetch ( store, coupons, savings) VALUES ("dollar general", 20, 500);
+SELECT * FROM fetch;
+INSERT INTO fetch (store, coupons, savings) VALUES ("khols", 3, 134);
+INSERT INTO fetch (store, coupons, savings) VALUES ("meijer", 16, 128);
+SELECT * FROM fetch;
+UPDATE fetch SET coupons= 25 WHERE id=1;
+SELECT * FROM fetch;
+DELETE FROM fetch WHERE id= 3;
+SELECT * FROM fetch;
