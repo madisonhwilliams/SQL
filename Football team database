@@ -1,0 +1,126 @@
+/* Unfinished */
+
+CREATE TABLE teams 
+(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, city TEXT, 
+team_rating INTEGER, number_pick INTEGER);
+
+INSERT INTO teams (city, name, number_pick, team_rating)
+VALUES('Farfigneugen', 'Bulldogs',1,2);
+INSERT INTO teams (city, name, number_pick, team_rating)
+VALUES('Stonetown', 'Bullfrogs',2,4);
+INSERT INTO teams (city, name, number_pick, team_rating)
+VALUES('Bigville', 'Bulldozers',3,4);
+INSERT INTO teams (city, name, number_pick, team_rating)
+VALUES('Hopital City', 'Bulls',4,5);
+
+CREATE TABLE b_dogs
+(team_id INTEGER, name TEXT, position TEXT, ht TEXT, wt INTEGER, rating INTEGER);
+
+INSERT INTO b_dogs
+VALUES(1,'Ron Beasley','QB',"6'0''", 205, 4);
+INSERT INTO b_dogs
+VALUES(2,'Bo Boom','WR',"5'10''", 197, 7);
+INSERT INTO b_dogs
+VALUES(3,'A. J. Crabtree','WR',"6'3''", 243, 5);
+INSERT INTO b_dogs
+VALUES(4,'Gwen Root','TE',"6'5''", 249, 4);
+INSERT INTO b_dogs
+VALUES(5,'Bink Robinson','RB',"5'7''", 175, 9);
+INSERT INTO b_dogs
+VALUES(1,'Hans Hooligan','LT',"5'10''", 457, 10);
+INSERT INTO b_dogs
+VALUES(1,'George Babushi','LG',"6'3''", 395, 5);
+INSERT INTO b_dogs
+VALUES(1,'Riley Matthews','C',"6'1''", 304, 2);
+INSERT INTO b_dogs
+VALUES(1,'Andy Falls','RG',"5'11.5''", 279, 3);
+INSERT INTO b_dogs
+VALUES(1,'L. J. Boom','RT',"6'11''", 459, 7);
+INSERT INTO b_dogs
+VALUES(1,'Friday Terrible','FB',"5'1''", 110, 1);
+
+CREATE TABLE b_frogs
+(team_id INTEGER, name TEXT, position TEXT, ht TEXT, wt INTEGER, rating INTEGER);
+
+CREATE TABLE b_dozers
+(team_id INTEGER, name TEXT, position TEXT, ht TEXT, wt INTEGER, rating INTEGER);
+
+CREATE TABLE bulls
+(team_id INTEGER, name TEXT, position TEXT, ht TEXT, wt INTEGER, rating INTEGER);
+
+CREATE TABLE people 
+(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, player_rating INTEGER, 
+age INTEGER, weight INTEGER, height TEXT);
+
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('Ron Peterson', 22, 213, "5'11''",1);
+
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('Marley Cerotts', 21, 233, "5'9''",8);
+    
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('John Strong', 23, 257, "5'11''",4);
+    
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('Tiki Torrtch', 22, 239, "6'1''",7);
+
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('DaMan Shun', 22, 324, "6'3''",10);
+
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('LeEuld McDonald', 22, 252, "5'8''",7);
+    
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('DaFerst Ramseas', 21, 213, "6'6''",6);    
+
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('Heath Rowes', 23, 241, "5'10''",8);  
+
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('Phil Micupp', 22, 281, "6'0''",3);
+    
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('Jack Jackson', 22, 222, "6'2''",6);
+    
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('John Johnson', 22, 222, "6'2''",6);
+    
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('Robert Robertson', 22, 222, "6'2''",6);
+    
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('Billy William III', 22, 307, "6'1''",8); 
+    
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('Bigge Buffe', 21, 474, "5'4''",10); 
+    
+INSERT INTO people (name, age, weight, height, player_rating) 
+    VALUES ('Bobby Buoy', 22, 345, "5'11''",6);       
+    
+CREATE TABLE draft 
+(person_id INTEGER PRIMARY KEY, position TEXT); 
+
+INSERT INTO draft VALUES (1, 'QB'); 
+INSERT INTO draft VALUES(2, 'TE');
+INSERT INTO draft VALUES(3, 'FB');
+INSERT INTO draft VALUES(4, 'SS');
+INSERT INTO draft VALUES(5, 'QB');
+INSERT INTO draft VALUES(6, 'FB');
+INSERT INTO draft VALUES(7, 'RB');
+INSERT INTO draft VALUES(8, 'RB');
+INSERT INTO draft VALUES(9, 'TE');
+INSERT INTO draft VALUES(10, 'WR');
+INSERT INTO draft VALUES(11, 'WR');
+INSERT INTO draft VALUES(12, 'WR');
+INSERT INTO draft VALUES(13, 'DE');
+INSERT INTO draft VALUES(14, 'LB');
+INSERT INTO draft VALUES (15, 'LB'); 
+    
+SELECT city, name, number_pick, teams.team_rating  FROM teams;
+
+SELECT people.name AS people, people.id, draft.position, people.height, people.weight, 
+people.player_rating  
+    FROM people 
+    LEFT OUTER JOIN draft
+    ON draft.person_id = people.id
+    ORDER BY draft.position;
