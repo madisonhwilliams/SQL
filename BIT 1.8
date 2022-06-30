@@ -1,0 +1,50 @@
+SELECT * FROM BIT_DB.customers LIMIT 10;
+
+SELECT * FROM BIT_DB.JanSales LIMIT 10;
+
+SELECT COUNT(orderID) FROM BIT_DB.JanSales;
+
+SELECT COUNT (orderID) FROM BIT_DB.JanSales WHERE Product= 'Iphone';
+
+SELECT acctnum FROM BIT_DB.customers customers
+INNER JOIN BIT_DB.FebSales sales
+ON customers.order_id=sales.OrderID;
+
+SELECT distinct Product, price
+FROM BIT_DB.JanSales 
+WHERE price in (SELECT MIN(price) FROM BIT_DB.JanSales);
+
+SELECT SUM(quantity)*price as revenue,product
+FROM BIT_DB.JanSALES
+GROUP BY product;
+
+SELECT SUM (quantity), product, SUM(quantity)*price as revenue
+FROM BIT_DB.FebSales
+WHERE location='548 Lincoln St, Seattle, WA 98101'
+ORDER BY product;
+
+SELECT count(cust.acctnum), AVG(quantity)*price as avg_spent
+FROM BIT_DB.FebSales feb
+LEFT JOIN BIT_DB.customers cust
+ON feb.orderid=cust.order_id
+WHERE feb.quantity>2;
+
+SELECT orderdate FROM BIT_DB.FebSales 
+WHERE orderdate between '02/13/19 00:00' AND '02/18/19 00:00';
+
+SELECT location FROM BIT_DB.FebSales WHERE orderdate = '02/18/19 01:35';
+
+SELECT sum(quantity)
+FROM BIT_DB.FebSales WHERE orderdate like '02/18/19%';
+
+SELECT distinct Product 
+FROM BIT_DB.FebSales 
+WHERE Product like '%Batteries%';
+
+SELECT distinct Product,Price FROM BIT_DB.FebSales 
+WHERE Price like '%.99';
+
+SELECT Product, sum(quantity)
+FROM BIT_DB.FebSales
+WHERE location like '%Los Angeles%'
+GROUP BY Product;
