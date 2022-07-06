@@ -1,0 +1,41 @@
+SELECT * FROM crime_scene_report
+WHERE type = 'murder' AND date = 20180115;
+
+SELECT * FROM person WHERE address_street_name = 'Franklin Ave'
+
+SELECT * FROM person WHERE address_street_name = 'Northwestern Dr'
+ORDER BY address_number asc
+
+SELECT * FROM interview WHERE person_id = 16371
+
+SELECT * FROM interview WHERE person_id = 14887
+
+SELECT * FROM get_fit_now_member WHERE membership_status = 'gold'
+
+SELECT * FROM get_fit_now_check_in WHERE check_in_date = 20180109
+
+
+SELECT * FROM get_fit_now_check_in 
+WHERE check_in_date = 20180109 AND membership_id = 90081
+
+SELECT * FROM get_fit_now_check_in WHERE check_in_date = 20180109 AND check_out_time >1600
+
+
+ SELECT * FROM get_fit_now_member WHERE ID = '48Z7A' 
+  SELECT * FROM get_fit_now_member WHERE ID = '48Z55'
+  
+  SELECT * FROM drivers_license WHERE plate_number LIKE'%H42W%'        
+  
+  SELECT * FROM person WHERE license_id = 423327 
+  
+  SELECT * FROM person WHERE license_id = 664760
+ *** 
+  SELECT * FROM drivers_license WHERE gender = 'female' 
+AND height BETWEEN 65 AND 67 AND car_make = 'Tesla'
+
+
+SELECT * FROM person WHERE license_id =202298
+SELECT * FROM person WHERE license_id =291182
+SELECT * FROM person WHERE license_id =918773
+
+SELECT * FROM facebook_event_checkin WHERE person_id = 99716
