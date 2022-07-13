@@ -12,3 +12,17 @@ Write a query that includes the purchased track name AND artist name with each i
 Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre.
 Show the total sales made by each sales agent.
 Which sales agent made the most in sales in 2009?
+
+
+
+1 answer 
+SELECT CustomerId, FirstName, LastName, Country FROM chinook.customers
+WHERE country != 'USA'
+ORDER BY Lastname;
+
+2 answer 
+SELECT Firstname, Lastname, Country FROM chinook.customers 
+WHERE country = 'Brazil'
+ORDER BY Lastname
+
+3 answer 
