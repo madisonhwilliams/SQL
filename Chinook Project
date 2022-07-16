@@ -26,3 +26,38 @@ WHERE country = 'Brazil'
 ORDER BY Lastname
 
 3 answer 
+SELECT invoices.InvoiceId, invoices.CustomerId, invoices.InvoiceDate, customers.FirstName, customers.LastName, customers.country
+FROM chinook.invoices 
+LEFT OUTER JOIN chinook.customers 
+ON invoices.CustomerId=customers.CustomerId
+WHERE Country= 'Brazil';
+
+
+4 answer 
+SELECT * FROM chinook.employees
+WHERE Title = 'Sales Support Agent'
+
+
+5 answer 
+SELECT SUM(total) FROM chinook.invoices 
+WHERE BillingCountry= 'Canada';
+
+SELECT BillingCountry, CustomerId FROM chinook.invoices
+WHERE CustomerId BETWEEN '1' AND '10'
+ORDER BY CustomerId;
+
+6 answer
+???
+
+7 answer 
+??
+
+8 answer 
+SELECT Count(InvoiceDate) FROM chinook.invoices
+WHERE InvoiceDate LIKE'2009%';
+
+9 answer 
+SELECT SUM(total) FROM chinook.invoices 
+WHERE InvoiceDate LIKE '2009%';
+
+10 answer 
