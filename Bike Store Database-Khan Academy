@@ -1,3 +1,8 @@
+Create your own store! Your store should sell one type of things, like clothing or bikes, whatever you want your store to specialize in. 
+You should have a table for all the items in your store, and at least 5 columns for the kind of data you think you'd need to store. 
+You should sell at least 15 items, and use select statements to order your items by price and show at least one statistic about the items.
+
+
 CREATE TABLE bikes (id INTEGER PRIMARY KEY, name TEXT, color TEXT, size INTEGER, price INTEGER, stock INTEGER);
 INSERT INTO bikes VALUES(1, "schwinn", "blue", 20, 200, 5);
 INSERT INTO bikes VALUES(2, "gubler", "black", 21, 179, 6);
