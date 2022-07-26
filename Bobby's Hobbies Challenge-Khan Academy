@@ -1,3 +1,9 @@
+#1. Insert one more row in persons and then one more row in hobbies that is related to the newly inserted person.
+#2. Now, select the 2 tables with a join so that you can see each person's name next to their hobby
+#3. Now, add an additional query that shows only the name and hobbies of 'Bobby McBobbyFace', using JOIN combined with WHERE.
+
+
+
 CREATE TABLE persons (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
@@ -25,14 +31,15 @@ INSERT INTO hobbies (person_id, name) VALUES (3, "drawing");
 INSERT INTO hobbies (person_id, name) VALUES (4, "coding");
 INSERT INTO hobbies (person_id, name) VALUES (4, "dilly-dallying");
 INSERT INTO hobbies (person_id, name) VALUES (4, "meowing");
-INSERT INTO hobbies (person_id, name) VALUES (6, "cooking");
 
-SELECT persons.name, hobbies.name
+#1. INSERT INTO hobbies (person_id, name) VALUES (6, "cooking");
+
+#2. SELECT persons.name, hobbies.name
 FROM persons 
 JOIN hobbies 
 ON persons.id=hobbies.person_id;
 
-SELECT persons.name, hobbies.name
+#3. SELECT persons.name, hobbies.name
 FROM persons
 JOIN hobbies
 ON persons.id=hobbies.person_id
