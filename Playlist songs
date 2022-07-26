@@ -1,3 +1,7 @@
+#1. select the title of all the songs by the artist named 'Queen'.
+#2. select the name of all of the artists from the 'Pop' genre.
+#3. select the title of all the songs from the 'Pop' artists.
+
 CREATE TABLE artists (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT,
@@ -57,6 +61,6 @@ INSERT INTO songs (artist, title)
 INSERT INTO songs (artist, title)
     VALUES ("Guns N' Roses", "Don't cry");
     
-SELECT title FROM songs WHERE artist = "Queen";
-SELECT name FROM artists WHERE genre = "Pop";
-SELECT title FROM songs WHERE artists IN ( SELECT name FROM artists WHERE genre ="Pop"); 
+#1. SELECT title FROM songs WHERE artist = "Queen";
+#2. SELECT name FROM artists WHERE genre = "Pop";
+#3. SELECT title FROM songs WHERE artists IN ( SELECT name FROM artists WHERE genre ="Pop"); 
