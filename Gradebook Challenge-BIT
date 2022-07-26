@@ -1,3 +1,8 @@
+#1. select all of the rows, and display the name, number_grade, and percent_completed
+#2. shows how many students have earned which letter_grade
+
+
+
 
 CREATE TABLE student_grades (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -18,9 +23,9 @@ INSERT INTO student_grades (name, number_grade, fraction_completed)
 INSERT INTO student_grades (name, number_grade, fraction_completed)
     VALUES ("Winstonia", 82, 0.9045);
 
-SELECT name,number_grade,ROUND(fraction_completed*100) AS percent_completed FROM student_grades;
+#1. SELECT name,number_grade,ROUND(fraction_completed*100) AS percent_completed FROM student_grades;
 
-SELECT COUNT (*),
+#2. SELECT COUNT (*),
 CASE 
 WHEN number_grade >90 THEN "A"
 WHEN number_grade >80 THEN "B"
