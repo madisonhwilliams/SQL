@@ -28,12 +28,12 @@ INSERT INTO songs (title, artist, mood, duration, released)
 INSERT INTO songs (title, artist, mood, duration, released)
     VALUES ("Call me maybe", "Carly Rae Jepsen", "happy", 193, 2011);
     
-SELECT "title" FROM songs;
+#1. SELECT "title" FROM songs;
 
 
 /*AND*/
-SELECT "title" FROM songs WHERE released > 1990 OR mood ="epic";
+#2. SELECT "title" FROM songs WHERE released > 1990 OR mood ="epic";
 /*AND*/
-SELECT "title" FROM songs WHERE released > 1990 AND mood="epic" AND duration < 240;
+#3. SELECT "title" FROM songs WHERE released > 1990 AND mood="epic" AND duration < 240;
 
 I used SQL to select song duration and mood from a database to narrow the information into groups 
