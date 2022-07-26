@@ -1,3 +1,9 @@
+#1. What are average, max, and min values in the data?
+#2. What about those numbers per category in the data (using HAVING)?
+#3. What ways are there to group the data values that don’t exist yet (using CASE)?
+#4. What interesting ways are there to filter the data (using AND/OR)?
+
+
 CREATE TABLE marvels (ID INTEGER PRIMARY KEY,
     name TEXT,
     popularity INTEGER,
@@ -42,21 +48,19 @@ INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA
 SELECT * FROM marvels;
 SELECT * FROM marvels;
 
-SELECT name, MAX(speed) FROM marvels;
-
+#1. SELECT name, MAX(speed) FROM marvels;
 SELECT name, MIN(height_m) FROM marvels;
-
 SELECT name, AVG(fighting_Skills) FROM marvels;
 
-SELECT name FROM marvels
+#2. SELECT name FROM marvels
 GROUP BY name
 HAVING intelligence > 5;
 
-SELECT COUNT(*),
+#3. SELECT COUNT(*),
 CASE 
 WHEN hometown = "USA" THEN "USA_superheros"
 ELSE "other"
 END as "Locals" FROM marvels
 GROUP by locals;
 
-SELECT name FROM marvels WHERE gender ='Male' AND popularity < 10;
+#4. SELECT name FROM marvels WHERE gender ='Male' AND popularity < 10;
