@@ -1,3 +1,7 @@
+#1. use a JOIN to display a table showing people's names with their hobbies.
+#2. Now, use another SELECT with a JOIN to show the names of each pair of friends, based on the data in the friends table.
+
+
 CREATE TABLE persons (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     fullname TEXT,
@@ -35,12 +39,12 @@ INSERT INTO friends (person1_id, person2_id)
 INSERT INTO friends (person1_id, person2_id)
     VALUES (2, 3);
     
-SELECT persons.fullname, hobbies.name
+#1. SELECT persons.fullname, hobbies.name
 FROM persons
 JOIN hobbies
 ON persons.id=hobbies.person_id;
 
-SELECT a.fullname,b.fullname
+#2. SELECT a.fullname,b.fullname
 FROM friends 
 JOIN persons a
 ON a.id=friends.person1_id
