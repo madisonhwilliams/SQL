@@ -1,7 +1,0 @@
-#1. Create a table with your favorite books with the title and your rating 
-
-#1. CREATE TABLE books (id INTEGER, rating NUMERIC, name TEXT);
-
-INSERT INTO books VALUES (1,"Harry Potter", 4);
-INSERT INTO books VALUES (2, "physics", 5);
-INSERT INTO books VALUES (3, "Colleen", 6);
