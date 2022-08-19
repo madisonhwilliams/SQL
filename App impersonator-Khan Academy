@@ -1,3 +1,4 @@
+Project 1. App Impersonator 
 Think about your favorite apps, and pick one that stores your data- like a game that stores scores, an app that lets you post updates, etc.
 Now in this project, you're going to imagine that the app stores your data in a SQL database (which is pretty likely!), and write SQL statements 
 that might look like their own SQL.
@@ -19,3 +20,355 @@ UPDATE fetch SET coupons= 25 WHERE id=1;
 SELECT * FROM fetch;
 DELETE FROM fetch WHERE id= 3;
 SELECT * FROM fetch;
+
+
+Project 2. Bike Store Database 
+Create your own store! Your store should sell one type of things, like clothing or bikes, whatever you want your store to specialize in. 
+You should have a table for all the items in your store, and at least 5 columns for the kind of data you think you'd need to store. 
+You should sell at least 15 items, and use select statements to order your items by price and show at least one statistic about the items.
+
+
+CREATE TABLE bikes (id INTEGER PRIMARY KEY, name TEXT, color TEXT, size INTEGER, price INTEGER, stock INTEGER);
+INSERT INTO bikes VALUES(1, "schwinn", "blue", 20, 200, 5);
+INSERT INTO bikes VALUES(2, "gubler", "black", 21, 179, 6);
+INSERT INTO bikes VALUES(3, "matrix", "red", 18, 220, 2);
+INSERT INTO bikes VALUES(4, "corkscrew", "dark blue", 22, 109, 10);
+INSERT INTO bikes VALUES(5, "viper", "pink", 20, 201, 10);
+INSERT INTO bikes VALUES(6, "star", "yellow", 19, 199, 5);
+INSERT INTO bikes VALUES(7, "the boss", "black", 21, 300, 3);
+INSERT INTO bikes VALUES(8, "shiner", "silver", 20, 159, 12);
+INSERT INTO bikes VALUES(9,"rambo", "red", 18, 130, 9);
+INSERT INTO bikes VALUES(10,"marvel", "blue", 20, 189, 5);
+INSERT INTO bikes VALUES(11, "thumper", "purple", 21, 220, 6);
+INSERT INTO bikes VALUES (12, "charger", "grey", 22, 160, 11);
+INSERT INTO bikes VALUES(13, "challenger", "yellow", 21, 320, 12);
+INSERT INTO bikes VALUES(14, "cherokee", "white", 18, 210, 3);
+INSERT INTO bikes VALUES(15, "sierra", "gold", 22, 305, 5);
+
+--display the database ordered by price 
+SELECT * FROM bikes
+ORDER BY price;
+
+--What is the maximum price of any item?
+SELECT name, MAX(price) FROM bikes;
+
+What is the item with the most in stock?
+SELECT name, MAX(stock) FROM bikes;
+
+
+Project 3. Bobbies Hobbies 
+#1. Insert one more row in persons and then one more row in hobbies that is related to the newly inserted person.
+#2. Now, select the 2 tables with a join so that you can see each person's name next to their hobby
+#3. Now, add an additional query that shows only the name and hobbies of 'Bobby McBobbyFace', using JOIN combined with WHERE.
+
+
+
+CREATE TABLE persons (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    age INTEGER);
+    
+INSERT INTO persons (name, age) VALUES ("Bobby McBobbyFace", 12);
+INSERT INTO persons (name, age) VALUES ("Lucy BoBucie", 25);
+INSERT INTO persons (name, age) VALUES ("Banana FoFanna", 14);
+INSERT INTO persons (name, age) VALUES ("Shish Kabob", 20);
+INSERT INTO persons (name, age) VALUES ("Fluffy Sparkles", 8);
+INSERT INTO persons (name, age) VALUES ("John Doe", 35);
+
+CREATE table hobbies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    name TEXT);
+    
+INSERT INTO hobbies (person_id, name) VALUES (1, "drawing");
+INSERT INTO hobbies (person_id, name) VALUES (1, "coding");
+INSERT INTO hobbies (person_id, name) VALUES (2, "dancing");
+INSERT INTO hobbies (person_id, name) VALUES (2, "coding");
+INSERT INTO hobbies (person_id, name) VALUES (3, "skating");
+INSERT INTO hobbies (person_id, name) VALUES (3, "rowing");
+INSERT INTO hobbies (person_id, name) VALUES (3, "drawing");
+INSERT INTO hobbies (person_id, name) VALUES (4, "coding");
+INSERT INTO hobbies (person_id, name) VALUES (4, "dilly-dallying");
+INSERT INTO hobbies (person_id, name) VALUES (4, "meowing");
+
+#1. INSERT INTO hobbies (person_id, name) VALUES (6, "cooking");
+
+#2. SELECT persons.name, hobbies.name
+FROM persons 
+JOIN hobbies 
+ON persons.id=hobbies.person_id;
+
+#3. SELECT persons.name, hobbies.name
+FROM persons
+JOIN hobbies
+ON persons.id=hobbies.person_id
+WHERE persons.name='Bobby McBobbyFace';
+
+
+
+Project 4. Book List
+#1. Create a table with your favorite books with the title and your rating 
+
+#1. CREATE TABLE books (id INTEGER, rating NUMERIC, name TEXT);
+
+INSERT INTO books VALUES (1,"Harry Potter", 4);
+INSERT INTO books VALUES (2, "physics", 5);
+INSERT INTO books VALUES (3, "Colleen", 6);
+
+
+Project 5. Box Office
+#1. Select all of the movies 
+#2. Select all of the movies released after the year 2000
+
+CREATE TABLE movies (id INTEGER PRIMARY KEY, name TEXT, release_year INTEGER);
+INSERT INTO movies VALUES (1, "Avatar", 2009);
+INSERT INTO movies VALUES (2, "Titanic", 1997);
+INSERT INTO movies VALUES (3, "Star Wars: Episode IV - A New Hope", 1977);
+INSERT INTO movies VALUES (4, "Shrek 2", 2004);
+INSERT INTO movies VALUES (5, "The Lion King", 1994);
+INSERT INTO movies VALUES (6, "Disney's Up", 2009);
+ 
+ 
+#1. SELECT * FROM movies; 
+
+
+
+
+Project 6. Clothing Alterations 
+#1. Use ALTER to add a 'price' column to the table. Then select all the columns in each row to see what your table looks like now.
+#2 Now assign each item a price, using UPDATE - item 1 should be 10 dollars, item 2 should be 20 dollars, item 3 should be 30 dollars. 
+When you're done, do another SELECT of all the rows to check that it worked as expected.
+#3. Now insert a new item into the table that has all three attributes filled in, including 'price'. 
+Do one final SELECT of all the rows to check it worked.
+
+
+
+CREATE TABLE clothes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    type TEXT,
+    design TEXT);
+    
+INSERT INTO clothes (type, design)
+    VALUES ("dress", "pink polka dots");
+INSERT INTO clothes (type, design)
+    VALUES ("pants", "rainbow tie-dye");
+INSERT INTO clothes (type, design)
+
+
+
+
+
+Project 7. Customer Orders
+#1. We've created a database for customers and their orders. Not all of the customers have made orders, however.
+Come up with a query that lists the name and email of every customer followed by the item and price of orders they've made. 
+Use a LEFT OUTER JOIN so that a customer is listed even if they've made no orders, and don't add any ORDER BY
+#2. Now, create another query that will result in one row per each customer, with their name, email, and total amount of money 
+they've spent on orders. Sort the rows according to the total money spent, from the most spent to the least spent
+
+CREATE TABLE customers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    email TEXT);
+    
+INSERT INTO customers (name, email) VALUES ("Doctor Who", "doctorwho@timelords.com");
+INSERT INTO customers (name, email) VALUES ("Harry Potter", "harry@potter.com");
+INSERT INTO customers (name, email) VALUES ("Captain Awesome", "captain@awesome.com");
+
+CREATE TABLE orders (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    customer_id INTEGER,
+    item TEXT,
+    price REAL);
+
+INSERT INTO orders (customer_id, item, price)
+    VALUES (1, "Sonic Screwdriver", 1000.00);
+INSERT INTO orders (customer_id, item, price)
+    VALUES (2, "High Quality Broomstick", 40.00);
+INSERT INTO orders (customer_id, item, price)
+    VALUES (1, "TARDIS", 1000000.00);
+
+#1. SELECT customers.name,customers.email,orders.item,orders.price
+FROM customers
+Left Outer Join orders
+ON customers.id=orders.customer_id;
+
+#2. SELECT customers.name,customers.email,SUM(orders.price) AS spent
+FROM customers
+Left Outer Join orders
+ON customers.id=orders.customer_id
+GROUP BY customers.name
+ORDER BY spent desc;
+    VALUES ("blazer", "black sequin");
+
+#1. ALTER TABLE clothes ADD price INTEGER;
+
+SELECT * FROM clothes;
+
+#2. UPDATE clothes SET price = 10 WHERE id=1;
+UPDATE clothes SET price = 20 WHERE id=2;
+UPDATE clothes SET price = 30 WHERE id=3;
+
+SELECT * FROM clothes;
+
+#3. INSERT INTO clothes (type, design, price) VALUES ("shorts", "short fringe", 40);
+
+SELECT * FROM clothes;#2. SELECT * FROM movies WHERE release_year > 2000 ORDER BY release_year;
+
+
+
+
+Project 8. Data Dig
+#1. What are average, max, and min values in the data?
+#2. What about those numbers per category in the data (using HAVING)?
+#3. What ways are there to group the data values that don’t exist yet (using CASE)?
+#4. What interesting ways are there to filter the data (using AND/OR)?
+
+
+CREATE TABLE marvels (ID INTEGER PRIMARY KEY,
+    name TEXT,
+    popularity INTEGER,
+    alignment TEXT,
+    gender TEXT, 
+    height_m NUMERIC,
+    weight_kg NUMERIC,
+    hometown TEXT,
+    intelligence INTEGER,
+    strength INTEGER,
+    speed INTEGER,
+    durability INTEGER,
+    energy_Projection INTEGER,
+    fighting_Skills INTEGER);
+    
+INSERT INTO marvels VALUES(1, "Spider Man", 1, "Good", "Male", 1.78, 75.75, "USA", 4, 4, 3, 3, 1, 4); 
+INSERT INTO marvels VALUES(2, "Iron Man", 20, "Neutral", "Male", 1.98, 102.58, "USA", 6, 6, 5, 6, 6, 4); 
+INSERT INTO marvels VALUES(3, "Hulk", 18, "Neutral", "Male", 2.44, 635.29, "USA", 1, 7, 3, 7, 5, 4); 
+INSERT INTO marvels VALUES(4, "Wolverine", 3, "Good", "Male", 1.6, 88.46, "Canada", 2, 4, 2, 4, 1, 7);
+INSERT INTO marvels VALUES(5, "Thor", 5, "Good", "Male", 1.98, 290.3, "Asgard", 2, 7, 7, 6, 6, 4);
+INSERT INTO marvels VALUES(6, "Green Goblin", 91, "Bad", "Male", 1.93, 174.63, "USA", 4, 4, 3, 4, 3, 3);
+INSERT INTO marvels VALUES(7, "Magneto", 11, "Neutral", "Male", 1.88, 86.18, "Germany", 6, 3, 5, 4, 6, 4);
+INSERT INTO marvels VALUES(8, "Thanos", 47, "Bad", "Male", 2.01, 446.79, "Titan", 6, 7, 7, 6, 6, 4);
+INSERT INTO marvels VALUES(9, "Loki", 32, "Bad", "Male", 1.93, 238.14, "Jotunheim", 5, 5, 7, 6, 6, 3);
+INSERT INTO marvels VALUES(10, "Doctor Doom", 19, "Bad", "Male", 2.01, 188.24, "Latveria", 6, 4, 5, 6, 6, 4);
+INSERT INTO marvels VALUES(11, "Jean Grey", 8, "Good", "Female", 1.68, 52.16, "USA", 3, 2, 7, 7, 7, 4);
+INSERT INTO marvels VALUES(12, "Rogue", 4, "Good", "Female", 1.73, 54.43, "USA", 7, 7, 7, 7, 7, 7);
+INSERT INTO marvels VALUES(13, "Storm", 2, "Good", "Female", 1.80, 66, "Kenya", 2, 2, 3, 2, 5, 4);
+INSERT INTO marvels VALUES(14, "Nightcrawler", 6, "Good", "Male", 1.75, 73, "Germany", 3, 2, 7, 2, 1, 3);
+INSERT INTO marvels VALUES(15, "Gambit", 7, "Good", "Male", 1.88, 81, "EUA", 2, 2, 2, 2, 2, 4);
+INSERT INTO marvels VALUES(16, "Captain America", 9, "Good", "Male", 1.88, 108, "EUA", 3, 3, 2, 3, 1, 6);
+INSERT INTO marvels VALUES(17, "Cyclops", 10, "Good", "Male", 1.90, 88, "EUA", 3, 2, 2, 2, 5, 4);
+INSERT INTO marvels VALUES(18, "Emma Frost", 12, "Neutral", "Female", 1.78, 65, "EUA", 4, 4, 2, 5, 5, 3);
+INSERT INTO marvels VALUES(19, "Kitty Pryde", 13, "Good", "Female", 1.68, 50, "EUA", 4, 2, 2, 3, 1, 5);
+INSERT INTO marvels VALUES(20, "Daredevil", 14, "Good", "Male", 1.83, 91, "EUA", 3, 3, 2, 2, 4, 5);
+INSERT INTO marvels VALUES(21, "Punisher", 50, "Neutral", "Male", 1.85, 91, "EUA", 3, 3, 2, 2, 1, 6);
+INSERT INTO marvels VALUES(22, "Silver Surfer", 33, "Good", "Male", 1.93, 102, "Zenn-La", 3, 7, 7, 6, 7, 2);
+INSERT INTO marvels VALUES(23, "Ghost Rider", 86, "Good", "Male", 1.88, 99, "EUA", 2, 4, 3, 5, 4, 2);
+INSERT INTO marvels VALUES(24, "Venon", 78, "Neutral", "Male", 1.90, 118, "EUA", 3, 4, 2, 6, 1, 4);
+INSERT INTO marvels VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "EUA", 2, 7, 2, 7, 1, 4);
+INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);/* Put your data in here and query it! */
+SELECT * FROM marvels;
+SELECT * FROM marvels;
+
+#1. SELECT name, MAX(speed) FROM marvels;
+SELECT name, MIN(height_m) FROM marvels;
+SELECT name, AVG(fighting_Skills) FROM marvels;
+
+#2. SELECT name FROM marvels
+GROUP BY name
+HAVING intelligence > 5;
+
+#3. SELECT COUNT(*),
+CASE 
+WHEN hometown = "USA" THEN "USA_superheros"
+ELSE "other"
+END as "Locals" FROM marvels
+GROUP by locals;
+
+#4. SELECT name FROM marvels WHERE gender ='Male' AND popularity < 10;
+
+
+Project 9. Friend Book 
+#1. use a JOIN to display a table showing people's names with their hobbies.
+#2. Now, use another SELECT with a JOIN to show the names of each pair of friends, based on the data in the friends table.
+
+
+CREATE TABLE persons (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER);
+    
+INSERT INTO persons (fullname, age) VALUES ("Bobby McBobbyFace", "12");
+INSERT INTO persons (fullname, age) VALUES ("Lucy BoBucie", "25");
+INSERT INTO persons (fullname, age) VALUES ("Banana FoFanna", "14");
+INSERT INTO persons (fullname, age) VALUES ("Shish Kabob", "20");
+INSERT INTO persons (fullname, age) VALUES ("Fluffy Sparkles", "8");
+
+CREATE table hobbies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person_id INTEGER,
+    name TEXT);
+    
+INSERT INTO hobbies (person_id, name) VALUES (1, "drawing");
+INSERT INTO hobbies (person_id, name) VALUES (1, "coding");
+INSERT INTO hobbies (person_id, name) VALUES (2, "dancing");
+INSERT INTO hobbies (person_id, name) VALUES (2, "coding");
+INSERT INTO hobbies (person_id, name) VALUES (3, "skating");
+INSERT INTO hobbies (person_id, name) VALUES (3, "rowing");
+INSERT INTO hobbies (person_id, name) VALUES (3, "drawing");
+INSERT INTO hobbies (person_id, name) VALUES (4, "coding");
+INSERT INTO hobbies (person_id, name) VALUES (4, "dilly-dallying");
+INSERT INTO hobbies (person_id, name) VALUES (4, "meowing");
+
+CREATE table friends (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    person1_id INTEGER,
+    person2_id INTEGER);
+
+INSERT INTO friends (person1_id, person2_id)
+    VALUES (1, 4);
+INSERT INTO friends (person1_id, person2_id)
+    VALUES (2, 3);
+    
+#1. SELECT persons.fullname, hobbies.name
+FROM persons
+JOIN hobbies
+ON persons.id=hobbies.person_id;
+
+#2. SELECT a.fullname,b.fullname
+FROM friends 
+JOIN persons a
+ON a.id=friends.person1_id
+JOIN persons b
+ON b.id=friends.person2_id;
+
+
+
+Project 10. Sequels in SQL
+#1. We've created a table with all the 'Harry Potter' movies, with a sequel_id column that matches the id of the sequel for each movie. 
+Issue a SELECT that will show the title of each movie next to its sequel's title (or NULL if it doesn't have a sequel).
+
+CREATE TABLE movies (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    released INTEGER,
+    sequel_id INTEGER);
+
+INSERT INTO movies 
+    VALUES (1, "Harry Potter and the Philosopher's Stone", 2001, 2);
+INSERT INTO movies 
+    VALUES (2, "Harry Potter and the Chamber of Secrets", 2002, 3);
+INSERT INTO movies 
+    VALUES (3, "Harry Potter and the Prisoner of Azkaban", 2004, 4);
+INSERT INTO movies 
+    VALUES (4, "Harry Potter and the Goblet of Fire", 2005, 5);
+INSERT INTO movies 
+    VALUES (5, "Harry Potter and the Order of the Phoenix ", 2007, 6);
+INSERT INTO movies 
+    VALUES (6, "Harry Potter and the Half-Blood Prince", 2009, 7);
+INSERT INTO movies 
+    VALUES (7, "Harry Potter and the Deathly Hallows – Part 1", 2010, 8);
+INSERT INTO movies 
+    VALUES (8, "Harry Potter and the Deathly Hallows – Part 2", 2011, NULL);
+    
+    
+#1. SELECT movies.title, sequels.title FROM movies
+LEFT OUTER JOIN movies sequels 
+ON movies.sequel_id=sequels.id;
